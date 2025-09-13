@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weal • Stablecoin Analytics (Prototype)</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+  <script defer src="/static/js/app.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Weal • Stablecoin Analytics (Prototype)</h1>
+    <div class="muted">Toy “Bloomberg for Stablecoins” — nocap build</div>
+  </header>
+  <div class="tabs">
+    <div id="tab-peg" class="tab" onclick="setActive('peg')">Peg Monitor</div>
+    <div id="tab-sim" class="tab" onclick="setActive('sim')">Liquidity Sim</div>
+    <div id="tab-yield" class="tab" onclick="setActive('yield')">Yield Curve</div>
+  </div>
+  <div id="panel-peg" class="panel active">
+    <div class="card">
+      <div class="muted">Live snapshot from DefiLlama (auto-refresh ~3s)</div>
+      <table id="peg-table">
+        <thead><tr><th>Symbol</th><th>Venue</th><th>Price ($)</th><th>Updated</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  <div id="panel-sim" class="panel">
+    <div class="grid">
+      <div class="card">
+        <div class="muted">Reserves default to 50m/50m. Sizes: 1m, 5m, 10m</div>
+        <div id="slip-chart" style="height:320px;"></div>
+      </div>
+      <div class="card">
+        <table id="slip-table">
+          <thead><tr><th>Trade Size (in)</th><th>Out Amount</th><th>Exec Price (y/x)</th><th>Slippage (bps)</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div id="panel-yield" class="panel">
+    <div class="grid">
+      <div class="card">
+        <div id="yield-chart" style="height:320px;"></div>
+      </div>
+      <div class="card">
+        <table id="yield-anchors">
+          <thead><tr><th>Platform</th><th>Terms</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+

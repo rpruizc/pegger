@@ -1,0 +1,22 @@
+body { font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; background: #0e0f13; color: #e6e6e6; }
+header { padding: 16px 20px; background: #12141b; border-bottom: 1px solid #22252e; }
+h1 { margin: 0; font-size: 18px; letter-spacing: 0.4px; }
+.tabs { display: flex; gap: 8px; padding: 10px 20px; border-bottom: 1px solid #22252e; }
+.tab { padding: 8px 12px; border: 1px solid #22252e; border-bottom: none; background: #161924; cursor: pointer; border-radius: 6px 6px 0 0; }
+.tab.active { background: #1d2230; }
+.panel { display: none; padding: 20px; }
+.panel.active { display: block; }
+table { border-collapse: collapse; width: 100%; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #242938; }
+th { color: #9aa4bf; font-weight: 600; }
+.grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+.row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.card { background: #131826; border: 1px solid #22252e; border-radius: 10px; padding: 14px; }
+.muted { color: #9aa4bf; font-size: 12px; }
+.small { font-size: 12px; }
+.controls { display: flex; gap: 12px; align-items: center; }
+input[type=number] { background: #0f1422; color: #e6e6e6; border: 1px solid #22252e; border-radius: 6px; padding: 6px 8px; }
+button { background: #2b5cff; color: white; border: 0; border-radius: 6px; padding: 8px 10px; cursor: pointer; }
+a, a:visited { color: #7aa2ff; }
+
+
