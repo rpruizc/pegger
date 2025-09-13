@@ -4,6 +4,7 @@ from typing import List
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 
 from lib.amm import compute_slippage_summary
 from lib.yield_curve import build_usdc_yield_curve
@@ -24,6 +25,15 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Weal: Stablecoin Analytics (Prototype)", lifespan=lifespan)
 app.mount("/static", StaticFiles(directory="frontend/static"), name="static")
+
+# CORS for Next.js dev
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # dev-friendly: allow any origin
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/peg")
