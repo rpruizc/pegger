@@ -7,7 +7,10 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx -y concurrently -n api,next -c blue,magenta \"uvicorn backend.api:app --reload --host 127.0.0.1 --port 8000\" \"npm --prefix frontend-next run dev\"",
+    "dev:api": "uvicorn backend.api:app --reload --host 127.0.0.1 --port 8000",
+    "dev:next": "npm --prefix frontend-next run dev"
   },
   "repository": {
     "type": "git",

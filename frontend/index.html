@@ -11,7 +11,7 @@
 <body>
   <header>
     <h1>Weal • Stablecoin Analytics (Prototype)</h1>
-    <div class="muted">Toy “Bloomberg for Stablecoins” — nocap build</div>
+    <div class="muted">Bloomberg-style dashboard for digital dollars · live-ish prototype</div>
   </header>
   <div class="tabs">
     <div id="tab-peg" class="tab" onclick="setActive('peg')">Peg Monitor</div>
@@ -19,12 +19,21 @@
     <div id="tab-yield" class="tab" onclick="setActive('yield')">Yield Curve</div>
   </div>
   <div id="panel-peg" class="panel active">
-    <div class="card">
-      <div class="muted">Live snapshot from DefiLlama (auto-refresh ~3s)</div>
-      <table id="peg-table">
-        <thead><tr><th>Symbol</th><th>Venue</th><th>Price ($)</th><th>Updated</th></tr></thead>
-        <tbody></tbody>
-      </table>
+    <div class="grid">
+      <div class="card">
+        <div class="muted">Live snapshot from DefiLlama (auto-refresh ~3s)</div>
+        <table id="peg-table">
+          <thead><tr><th>Symbol</th><th>Venue</th><th>Price ($)</th><th>Spread vs Other (bps)</th><th>Spark</th><th>Updated</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="muted">Signals</div>
+        <div id="signals" class="row"></div>
+        <div class="controls" style="margin-top:10px;">
+          <button id="btn-replay">Historical Replay: Mar 2023 USDC depeg</button>
+        </div>
+      </div>
     </div>
   </div>
   <div id="panel-sim" class="panel">
@@ -39,6 +48,10 @@
           <tbody></tbody>
         </table>
       </div>
+      <div class="card">
+        <div class="muted">Liquidity Heatmap (slippage by trade size and depth)</div>
+        <div id="slip-heatmap" style="height:360px;"></div>
+      </div>
     </div>
   </div>
   <div id="panel-yield" class="panel">
@@ -47,6 +60,8 @@
         <div id="yield-chart" style="height:320px;"></div>
       </div>
       <div class="card">
+        <div class="muted">Anchors and Delta</div>
+        <div id="yield-delta" class="muted" style="margin:6px 0 10px;"></div>
         <table id="yield-anchors">
           <thead><tr><th>Platform</th><th>Terms</th></tr></thead>
           <tbody></tbody>

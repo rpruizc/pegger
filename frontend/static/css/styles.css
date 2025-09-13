@@ -19,4 +19,8 @@ input[type=number] { background: #0f1422; color: #e6e6e6; border: 1px solid #222
 button { background: #2b5cff; color: white; border: 0; border-radius: 6px; padding: 8px 10px; cursor: pointer; }
 a, a:visited { color: #7aa2ff; }
 
+.spark { width: 120px; height: 28px; }
+td.alert { color: #ff6b6b; font-weight: 600; }
+.card-mini { margin: 6px; }
+
 
